@@ -19,6 +19,6 @@ class Image
   end
   
   def self.find(searchterm="")
-    @images = {}
+    @images = flickr.photos.search(:tags=>"test")
   end
 end

@@ -8,6 +8,11 @@ describe Image do
     Image.find().should_not nil
   end
   
+  it "has a find method that returns images" do
+    
+  end
+  
+  
   it "can, if need be create an instance of itself, filling several fields" do
     fields = {:title=>"test",:desc=>"test2"}
     Image.new(fields).should be_valid
