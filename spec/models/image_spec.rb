@@ -4,23 +4,25 @@ describe Image do
   it "has a find method" do
    Image.should respond_to(:find)
   end
-  it "has a find method that can be empty" do
-   # Image.find().should_not nil
-   # wow okay so flickr actually doesnt let you find empty string.
+  
+  it "has a search method" do
+   Image.should respond_to(:search)
   end
   
-  it "has a find method that returns images" do
-    Image.find("test").count>=1
+  it "has a search method that returns images" do
+    Image.search("test").count>=1
   end
   
-  
-  it "can, if need be create an instance of itself, filling several fields" do
-    fields = {:title=>"test",:desc=>"test2"}
-    Image.new(fields).should be_valid
+  it "has a find method that brings back some urls" do
+    Image.find(8097322850)[0].source.should_not nil
   end
   
   it "has a find method that can be passed a search string" do
-    Image.find("searchterm").should_not nil
+    Image.search("searchterm").should_not nil
+  end
+  
+  it "has a search method that brings back one or more objects with the url_sq property" do
+    Image.search("test")[0].url_sq.should_not nil
   end
   
   it "shouldnt have a create method" do

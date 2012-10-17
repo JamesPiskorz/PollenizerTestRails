@@ -165,6 +165,7 @@ DEPENDENCIES
   flickraw
   jquery-rails
   json
+  less
   rails (= 3.2.8)
   rspec-rails
   sass-rails (~> 3.2.3)

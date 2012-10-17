@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
 
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<%# i dont particularly like this code. But basically flickr give us a array of urls to image sizes. the biggest is the last in the array. %>
+<%= image_tag @image[-1].source%>

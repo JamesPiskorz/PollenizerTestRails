@@ -1,28 +1,22 @@
 class ImagesController < ApplicationController
   # GET /images
-  # GET /images.json
   def index
-   # @images = Image.all()
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @images }
-    end
   end
 
   # GET /images/1
-  # GET /images/1.json
   def show
     @image = Image.find(params[:id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @image }
-    end
+   
   end
-  
+  # GET images/search?q=hey&commit=Search
   def search
-   @images_paginated = Image.paginate(:searchterm=>params[:q],:page=>params[:page])
+   # i feel this is a little hacky... can the page be nil checked in the paginate method
+   if params[:page].nil? then
+     params[:page]=1
+   end
+   
+   @images_paginated = Image.paginate(params[:q],params[:page])
    @query = params[:q] 
  
   end
