@@ -24,7 +24,8 @@ class ImagesController < ApplicationController
   def search
    @images = Image.find(params[:q],params[:page])
    @query = params[:q] 
-   @page = params[:page]
+   @page = params[:page
+#   WillPaginate::Collection.create(
   end
 
  end
