@@ -23,7 +23,8 @@ class ImagesController < ApplicationController
   end
   
   def search
-   # params[:q]
+   @images = Image.find(params[:q])
+   
   end
 
  end

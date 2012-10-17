@@ -1,6 +1,9 @@
+
 class Image
+
  include ActiveModel::Validations
  include ActiveModel::Conversion
+
  extend ActiveModel::Naming
   attr_accessor :title, :desc, :url_thumb ,:url_large
   
@@ -19,6 +22,7 @@ class Image
   end
   
   def self.find(searchterm="")
+
     @images = flickr.photos.search(:tags=>"test")
   end
 end
