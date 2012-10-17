@@ -14,4 +14,7 @@ You have two days to release!
 Good luck :)
 
 
-This is my first ever unit tested rails app. 
+This is my first ever unit tested rails app.
+To run the tests run:
+rake spec
+ 
