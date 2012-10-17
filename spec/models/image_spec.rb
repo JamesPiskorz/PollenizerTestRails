@@ -5,16 +5,16 @@ describe Image do
    Image.should respond_to(:find)
   end
   it "has a find method that can be empty" do
-    Image.find().should be_valid
+    Image.find().should_not nil
   end
   
   it "can, if need be create an instance of itself, filling several fields" do
     fields = {:title=>"test",:desc=>"test2"}
-    Image.new(fields).should be_valid 
+    Image.new(fields).should be_valid
   end
   
   it "has a find method that can be passed a search string" do
-    Image.find("searchterm").should be_valid
+    Image.find("searchterm").should_not nil
   end
   
   it "shouldnt have a create method" do

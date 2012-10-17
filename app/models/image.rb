@@ -18,7 +18,7 @@ class Image
     @images = {}
   end
   
-  def self.find
-    @images
+  def self.find(searchterm="")
+    @images = {}
   end
 end

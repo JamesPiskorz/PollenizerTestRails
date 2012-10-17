@@ -28,6 +28,9 @@ group :development, :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
 end
 
+gem 'flickraw' 
+
+gem 'will_paginate', '~> 3.0'
 
 
 # To use ActiveModel has_secure_password
