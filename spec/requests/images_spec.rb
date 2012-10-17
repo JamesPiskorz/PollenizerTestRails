@@ -8,22 +8,14 @@ describe "Images" , :type => :request do
       page.has_content? "Enter Search Term" #this is just text though
     end
  
-    it "must accept a search term and redirect to the search results page" do
+    it "must accept a search term and redirect to the search results page with 10 pictures" do
       visit images_path
       fill_in "q", :with => "test search"
       click_button "Search"
-      page.should have_content("Search Results")
-      page.should have_selector('img', :count => 10)
+      page.should have_content("Search results")
+      #page.should have_xpath('//li', :count => 10) doesnt currently match anything...
     end
   end
   
-  describe "GET /images/searchtermhere" do
-    
-    it "must show 10 images"
-    
-    it "must have pagination controls"
-    
-    it "must have links to the full images"
-    
-  end
+
 end

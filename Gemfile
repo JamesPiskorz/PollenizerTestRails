@@ -29,7 +29,7 @@ group :development, :test do
 end
 
 gem 'flickraw' 
-
+gem "twitter-bootstrap-rails"
 gem 'will_paginate', '~> 3.0'
 
 

@@ -22,10 +22,9 @@ class ImagesController < ApplicationController
   end
   
   def search
-   @images = Image.find(params[:q],params[:page])
+   @images_paginated = Image.paginate(:searchterm=>params[:q],:page=>params[:page])
    @query = params[:q] 
-   @page = params[:page
-#   WillPaginate::Collection.create(
+ 
   end
 
  end

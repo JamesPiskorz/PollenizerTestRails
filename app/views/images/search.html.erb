@@ -1,6 +1,7 @@
 <h1>Search results</h1>
+You searched for "<%= @query%>"
 <ul>
-<% @images.each do |image| %>
+<% @images_paginated.each do |image| %>
 <li>
 <%= image.title%>
 
@@ -8,3 +9,5 @@
 </li>
 <% end %>
 </ul>
+
+<%= will_paginate @images_paginated %>
