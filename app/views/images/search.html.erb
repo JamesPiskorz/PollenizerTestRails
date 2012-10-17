@@ -1,7 +1,10 @@
 <h1>Search results</h1>
-
+<ul>
 <% @images.each do |image| %>
-	 
-Image
+<li>
+<%= image.title%>
 
+<%= link_to image_tag(image.url_sq), {:action => 'show', :controller => 'images', :id => image.id}, :class => 'thumbnail' %>
+</li>
 <% end %>
+</ul>

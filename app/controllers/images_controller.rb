@@ -13,9 +13,8 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
-    @image = Image.find(params[:id]).paginate(:page => params[:page], :per_page => 30)
-
-
+    @image = Image.find(params[:id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @image }
@@ -23,8 +22,9 @@ class ImagesController < ApplicationController
   end
   
   def search
-   @images = Image.find(params[:q])
-   
+   @images = Image.find(params[:q],params[:page])
+   @query = params[:q] 
+   @page = params[:page]
   end
 
  end

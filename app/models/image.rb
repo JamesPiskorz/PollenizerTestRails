@@ -21,8 +21,8 @@ class Image
     @images = {}
   end
   
-  def self.find(searchterm="")
+  def self.find(searchterm="", page=1)
 
-    @images = flickr.photos.search(:tags=>"test")
+    @images = flickr.photos.search(:text=>searchterm, :per_page=>10, :extras=>"url_sq,url_o")
   end
 end
