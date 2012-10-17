@@ -8,6 +8,11 @@ describe Image do
     Image.find().should be_valid
   end
   
+  it "can, if need be create an instance of itself, filling several fields" do
+    fields = {:title=>"test",:desc=>"test2"}
+    Image.new(fields).should be_valid 
+  end
+  
   it "has a find method that can be passed a search string" do
     Image.find("searchterm").should be_valid
   end

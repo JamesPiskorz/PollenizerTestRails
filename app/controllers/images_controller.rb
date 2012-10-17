@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.all()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,21 +20,5 @@ class ImagesController < ApplicationController
       format.json { render :json => @image }
     end
   end
-  
-  
-  def new
-    @image = Image.new()
-  end
-  
-  def create
-    @image = Image.new(params[:message])
-    if @image.isvalid?
-      flash[:notice] = "Image created"
-      redirect_to root_url
-    else
-      render :action => "new"
-    end    
-  end
-
 
  end

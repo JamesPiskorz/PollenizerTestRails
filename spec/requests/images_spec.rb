@@ -9,4 +9,13 @@ describe "Images" do
       page.has_content? "Enter Search Term" #this is just text though
     end
   end
+  describe "GET /images/searchtermhere" do
+    
+    it "must show 10 images"
+    
+    it "must have pagination controls"
+    
+    it "must have links to the full images"
+    
+  end
 end
