@@ -1,22 +1,26 @@
 <h1>Search results</h1>
 You searched for "<%= @query%>"
 <table>
-<tr>
-<% @images_paginated.each_with_index do |image,index| %>
-	
-	<%if ((index%5)==0) then %>
-		</tr><tr>
-	<%end %>
-	<td>
-	<%= link_to image_tag(image.url_sq), {:action => "show", :controller => "images", :id => image.id}, :target=>"_blank", :class => "thumbnail" %>
-	</td>
-<% end %>
-</tr>
+	<tr>
+		<% @images_paginated.each_with_index do |image,index| %>
+			
+			<% # insert the dividor every 5th image %>
+			<%if ((index%5)==0) then %>
+				</tr>
+				<tr>
+			<%end %>
+			
+			<%# insert the image thumb and link%
+			<td> <%= link_to image_tag(image.url_sq), {:action => "show", :controller => "images", :id => image.id}, :target=>"_blank", :class => "thumbnail" %> </td>
+		
+		<% end %>
+	</tr>
 </table>
 <br>
 
 <% if @images_paginated.count == 0 then %>
 	That search term didnt match anything. Go back <%= link_to "here", images_path, :class=>"btn"%> to search again!
 <% end%>
+
 
 <%= will_paginate @images_paginated %>

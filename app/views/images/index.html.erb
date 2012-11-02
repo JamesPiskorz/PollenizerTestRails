@@ -1,9 +1,9 @@
 <h1>Listing images</h1>
 
 <%= form_tag(search_images_path, :method => "get",:class=>"form-search") do %>
-  <%= label_tag(:q, "Enter Search term:") %>
-  <%= text_field_tag(:q,nil, :class=>"input-medium search-query") %>
-  <%= submit_tag("Search",:class=>"btn") %>
+	<%= label_tag(:q, "Enter Search term:") %>
+	<%= text_field_tag(:q,nil, :class=>"input-medium search-query") %>
+	<%= submit_tag("Search",:class=>"btn") %>
 <% end %>
 
 <br />
