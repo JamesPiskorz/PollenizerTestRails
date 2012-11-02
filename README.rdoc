@@ -16,6 +16,8 @@ Good luck :)
 
 This originally was a PHP project, i re wrote it in a language that i know a little better. Ruby On Rails.
 
+Noteable features. It uses the flickraw gem to talk to the flickr rest API.
+
 This is my first ever unit tested rails app.
 I'm using rSpec with Capybara.
 To run the tests run:
