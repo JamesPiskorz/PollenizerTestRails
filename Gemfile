@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'json'
+# gem 'json'
 gem 'pg'
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,8 +27,8 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
-gem 'will_paginate', '~> 3.0'
-
+gem "will_paginate", "~> 3.0"
+gem "rake", "~> 10.0.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

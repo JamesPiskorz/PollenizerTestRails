@@ -6,6 +6,16 @@ class Image
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
+  attr_accessor :id
+  
+  def thumbnail
+    return flickr.photos.getSizes(:photo_id=>id)[0].source
+    
+  end
+  def fullsize
+    return flickr.photos.getSizes(:photo_id=>id)[-1].source
+  end
+  
   def persitant?
     return false
   end
@@ -15,18 +25,25 @@ class Image
   end
 
   def self.find(id)
-    @image = flickr.photos.getSizes(:photo_id=>id)
-  end
-
-  def self.search(searchterm="", page=1)
-    @images = flickr.photos.search(:text=>searchterm, :page=>page, :per_page=>10, :extras=>"url_sq,url_o")
+    return Image.new(:id => id)
   end
 
   def self.paginate(searchterm="", page=1)
-    imagelist = search(searchterm,page)
-    # we use the will_paginate gem to manage all of our pagination. Except we are responsible for fetching new data.
-    @images_paginated = WillPaginate::Collection.create(page, 10, imagelist.total) do |pager|
-      pager.replace(imagelist.to_a[0, 10])
+    flickrimagelist = flickr.photos.search(:text=>searchterm, :page=>page, :per_page=>10)
+    images = Array.new
+    flickrimagelist.each do |each|
+      images.push(Image.new(:id=>each.id))     
+    end
+    # we use the will_paginate gem to manage all of our pagination. We are responsible for fetching new data, telling it the total items left and the page we are on..
+    images_paginated = WillPaginate::Collection.create(page, 10, flickrimagelist.total) do |pager|
+      pager.replace(images.to_a[0,10])
+    end
+    return images_paginated
+  end
+  
+  def initialize(attributes = {})
+    attributes.each do |name, value|
+      send("#{name}=", value)
     end
   end
   

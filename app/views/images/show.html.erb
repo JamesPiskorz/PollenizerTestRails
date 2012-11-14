@@ -1,3 +1,3 @@
 
 <% #i dont particularly like this code. But basically flickr give us a array of urls to image sizes. the biggest is the last in the array. %>
-<%= image_tag @image[-1].source%>
+<%= image_tag @image.fullsize%>

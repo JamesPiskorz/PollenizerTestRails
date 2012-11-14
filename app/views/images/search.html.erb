@@ -11,7 +11,7 @@ You searched for "<%= @query%>"
 			<%end %>
 			
 			<%# insert the image thumb and link%>
-			<td> <%= link_to image_tag(image.url_sq), {:action => "show", :controller => "images", :id => image.id}, :target=>"_blank", :class => "thumbnail" %> </td>
+			<td> <%= link_to image_tag(image.thumbnail), {:action => "show", :controller => "images", :id => image.id}, :target=>"_blank", :class => "thumbnail" %> </td>
 		
 		<% end %>
 	</tr>
